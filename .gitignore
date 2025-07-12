@@ -1,0 +1,19 @@
+
+```gitignore
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+mlenv/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+
+# Model
+*.pkl
