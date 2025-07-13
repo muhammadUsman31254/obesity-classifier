@@ -61,9 +61,11 @@ if submitted:
     # Call FastAPI backend
     try:
         response = requests.post("http://127.0.0.1:8000/predict", json=input_data)
-        response.raise_for_status()
         result = response.json()
 
-        st.success(f"🧾 Prediction: **{result['predicted_class_label']}** (Class {result['predicted_class_numeric']})")
+        # Show prediction
+        st.success(f"🎯 Predicted Class: **{result['predicted_class_label']}**")
+        st.metric(label="🧪 Confidence", value=f"{result['confidence'] * 100:.2f}%")
+
     except Exception as e:
         st.error(f"❌ Error calling prediction API: {e}")

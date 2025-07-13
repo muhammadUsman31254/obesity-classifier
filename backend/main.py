@@ -45,12 +45,15 @@ def predict_obesity(data: ObesityFeatures):
     # Convert input to DataFrame
     df = pd.DataFrame([data.model_dump()])
 
-    # Predict
+    # Predict class
     prediction = model.predict(df)[0]
     predicted_label = class_mapping.get(prediction, "Unknown")
-        
 
+    # Predict class probabilities
+    probabilities = model.predict_proba(df)[0]
+    confidence_score = float(round(max(probabilities), 4))  
     return {
         "predicted_class_numeric": int(prediction),
-        "predicted_class_label": predicted_label
+        "predicted_class_label": predicted_label,
+        "confidence": confidence_score
     }
