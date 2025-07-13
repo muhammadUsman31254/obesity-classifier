@@ -60,7 +60,7 @@ if submitted:
 
     # Call FastAPI backend
     try:
-        response = requests.post("http://127.0.0.1:8000/predict", json=input_data)
+        response = requests.post("http://13.48.138.52:8000/predict", json=input_data)
         result = response.json()
 
         # Show prediction
