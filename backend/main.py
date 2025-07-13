@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 
 # Load model
-with open('backend\obesity_ml_model.pkl', 'rb') as f:
+with open('obesity_ml_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Class mapping fallback
